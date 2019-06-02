@@ -8,7 +8,15 @@ import MeetingRooms from '../MeetingRooms';
 import AddMeeting from '../AddMeeting';
 
 const client = new ApolloClient({
-	uri: 'http://smart-meeting.herokuapp.com/graphql'
+	uri: 'http://smart-meeting.herokuapp.com/graphql',
+	request: async operation => {
+		const token = await localStorage.getItem('token');
+		operation.setContext({
+			headers: {
+				token: token ? `Bearer ${token}` : 'a123gjhgjsdf6576'
+			}
+		});
+	}
 });
 
 export default function App() {
