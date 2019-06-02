@@ -5,6 +5,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import Listing from '../Listing';
 import MeetingRooms from '../MeetingRooms';
+import AddMeeting from '../AddMeeting';
 
 const client = new ApolloClient({
 	uri: 'http://smart-meeting.herokuapp.com/graphql'
@@ -20,6 +21,7 @@ export default function App() {
 				</header>
 				<Listing />
 				<MeetingRooms />
+				<AddMeeting />
 			</div>
 		</ApolloProvider>
 	);
