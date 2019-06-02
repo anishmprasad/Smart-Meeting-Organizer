@@ -1,25 +1,10 @@
 import React from 'react';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { MEETING_ROOMS } from '../../schema/queries';
 import './index.scss';
 
 const MeetingRooms = () => (
-	<Query
-		query={gql`
-			{
-				MeetingRooms {
-					name
-					floor
-					building {
-						name
-					}
-					meetings {
-						title
-					}
-				}
-			}
-		`}
-	>
+	<Query query={MEETING_ROOMS}>
 		{({ loading, error, data }) => {
 			console.log('MeetingRooms', loading, error, data);
 			if (loading) return <p>Good things take time....</p>;

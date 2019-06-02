@@ -1,25 +1,11 @@
 import React from 'react';
 import { Query, Mutation } from 'react-apollo';
-import gql from 'graphql-tag';
 import './index.scss';
+import { ADD_MEETING } from '../../schema/queries';
 
 const AddMeeting = () => (
 	<Mutation
-		mutation={gql`
-			mutation {
-				Meeting(
-					id: 1
-					title: "Booked3"
-					date: "13/02/2019"
-					startTime: "21:00"
-					endTime: "22:00"
-					meetingRoomId: 1
-				) {
-					id
-					title
-				}
-			}
-		`}
+		mutation={ADD_MEETING}
 		onCompleted={({ login }) => {
 			console.log(login);
 		}}

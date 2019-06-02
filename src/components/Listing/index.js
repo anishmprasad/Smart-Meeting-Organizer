@@ -1,32 +1,9 @@
 import React from 'react';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
-
-// export default class Listing extends Component {
-// 	render() {
-// 		return <div className='listing'>Listing</div>;
-// 	}
-// }
+import { LISTING } from '../../schema/queries';
 
 const Listing = () => (
-	<Query
-		query={gql`
-			{
-				Buildings {
-					name
-					meetingRooms {
-						name
-						meetings {
-							title
-							date
-							startTime
-							endTime
-						}
-					}
-				}
-			}
-		`}
-	>
+	<Query query={LISTING}>
 		{({ loading, error, data }) => {
 			console.log(loading, error, data);
 			if (loading) return <p>Good things take time....</p>;
