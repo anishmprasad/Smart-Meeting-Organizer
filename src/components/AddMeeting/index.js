@@ -15,7 +15,14 @@ const AddMeeting = () => (
 			return (
 				<div
 					onClick={() => {
-						meeting();
+						meeting({
+							id: 1,
+							title: 'anish m prasad',
+							date: '13/02/2019',
+							startTime: '21:00',
+							endTime: '22:00',
+							meetingRoomId: 1
+						});
 					}}
 				>
 					AddMeeting

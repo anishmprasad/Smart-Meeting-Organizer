@@ -13,7 +13,7 @@ import gql from 'graphql-tag';
 
 export const ADD_MEETING = gql`
 	mutation {
-		Meeting(id: 1, title: "Booked3", date: "13/02/2019", startTime: "21:00", endTime: "22:00", meetingRoomId: 1) {
+		Meeting(id: Number, title: String, date: String, startTime: String, endTime: String, meetingRoomId: Number) {
 			id
 			title
 		}
