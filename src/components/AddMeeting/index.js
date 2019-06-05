@@ -10,12 +10,14 @@ const AddMeeting = () => (
 			console.log(login);
 		}}
 	>
-		{(meeting, { loading, error }) => {
-			console.log('AddMeeting', meeting, loading, error);
+		{(addMeeting, { loading, error }) => {
+			console.log('AddMeeting', addMeeting, loading, error);
+			if (loading) return <p>Good things take time....</p>;
+			if (error) return <p>Something went wrong...</p>;
 			return (
 				<div
 					onClick={() => {
-						meeting({
+						addMeeting({
 							id: 1,
 							title: 'anish m prasad',
 							date: '13/02/2019',
