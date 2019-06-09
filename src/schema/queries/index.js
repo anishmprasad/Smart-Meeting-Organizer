@@ -11,9 +11,18 @@
 // } from 'graphql';
 import gql from 'graphql-tag';
 
+// export const ADD_MEETING = gql`
+// 	mutation Meeting(id: Int, title: String, date: String, startTime: String, endTime: String, meetingRoomId: Int) {
+// 		Meeting(id: $id, title: $title, date: $date, startTime: $startTime, endTime: $endTime, meetingRoomId: $meetingRoomId) {
+// 			id
+// 			title
+// 		}
+// 	}
+// `;
+
 export const ADD_MEETING = gql`
 	mutation {
-		addMeeting(id: Int, title: String, date: String, startTime: String, endTime: String, meetingRoomId: Int) {
+		Meeting(id: Int!, title: String, date: String, startTime: String, endTime: String, meetingRoomId: Int) {
 			id
 			title
 		}
