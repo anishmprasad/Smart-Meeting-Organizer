@@ -20,9 +20,36 @@ import gql from 'graphql-tag';
 // 	}
 // `;
 
+// export const ADD_MEETING = gql`
+// 	mutation SubmitComment($repoFullName: String!, $commentContent: String!) {
+// 		submitComment(repoFullName: $repoFullName, commentContent: $commentContent) {
+// 			postedBy {
+// 				login
+// 				html_url
+// 			}
+// 			createdAt
+// 			content
+// 		}
+// 	}
+// `;
+
 export const ADD_MEETING = gql`
-	mutation {
-		Meeting(id: Int!, title: String, date: String, startTime: String, endTime: String, meetingRoomId: Int) {
+	mutation AddMeeting(
+		$id: Int!
+		$title: String!
+		$date: String!
+		$startTime: String!
+		$endTime: String!
+		$meetingRoomId: Int!
+	) {
+		Meeting(
+			id: $id
+			title: $title
+			date: $date
+			startTime: $startTime
+			endTime: $endTime
+			meetingRoomId: $meetingRoomId
+		) {
 			id
 			title
 		}
