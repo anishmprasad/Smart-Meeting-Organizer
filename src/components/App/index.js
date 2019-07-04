@@ -1,23 +1,11 @@
 import React from 'react';
 import logo from '../../logo.svg';
 import './App.css';
-import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { client } from './config';
 import Listing from '../Listing';
 import MeetingRooms from '../MeetingRooms';
 import AddMeeting from '../AddMeeting';
-
-const client = new ApolloClient({
-	uri: 'http://smart-meeting.herokuapp.com/graphql',
-	request: async operation => {
-		const token = await localStorage.getItem('token');
-		operation.setContext({
-			headers: {
-				token: token ? `Bearer ${token}` : 'a123gjhgjsdf6576'
-			}
-		});
-	}
-});
 
 export default function App() {
 	return (
